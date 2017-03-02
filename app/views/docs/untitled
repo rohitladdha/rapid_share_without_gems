@@ -1,0 +1,44 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>Sign up</h1>
+
+      <% form_for :file_handler,:url =>{:controller => "file_handler",:action => "uploading",:method => :post}, :html => {:multipart => true} do %>
+      <%= file_field :file,:uploaded_file %>
+      <%= submit_tag "Upload image" %>
+<% end %> <br />
+    
+
+  
+    </div>
+  </div>
+</div>
+
+
+<% form_for @file_handler,:url =>{:controller => "file_handler",:action => "uploading",:method => :post}, :html => {:multipart => true} do |f| %>
+      <%= f.file_field :uploaded_file,:uploaded_file %>
+      <%= f.submit_tag "Upload image" %>
+<% end %> <br />
+
+
+application.html.erb
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Server</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

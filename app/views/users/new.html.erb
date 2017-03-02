@@ -1,0 +1,19 @@
+
+<% flash.each do |key, value| %>
+   <%= content_tag :div, value, class: "flash_#{key}" %>
+<% end %>
+
+<div class="login">
+  <div class="container">
+    <div class="form">
+    <h1>Sign up</h1>
+    <%= form_for(@user) do |f| %>
+      <%= f.text_field :first_name, :placeholder => "First name" %>
+      <%= f.text_field :last_name, :placeholder => "Last name" %>
+      <%= f.email_field :email, :placeholder => "Email" %>
+      <%= f.password_field :password, :placeholder => "Password (min 6 characters)" %>
+      <%= f.submit "Create an account", class: "btn-submit" %>
+    <% end %>
+    </div>
+  </div>
+</div>

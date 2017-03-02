@@ -1,0 +1,19 @@
+
+
+</br> </br>
+<table>
+<% @docs.each do |doc| %>
+      <tr>
+        <td><%= link_to doc.name, docs_download_path(doc) %></td>
+      </tr>
+    <% end %>
+</table>
+
+</br> </br>
+<%= form_for @doc, url: {:controller => "docs",:action => "uploading",:method => :post}, :html => {:multipart => true}  do |f| %>
+  <%= f.file_field :uploaded_file %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+</div>
+</div>
